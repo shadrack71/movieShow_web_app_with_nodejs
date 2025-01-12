@@ -18,16 +18,11 @@ router.get('/',async (req,res) => {
         res.redirect('/')
 
     }
-    
-
-
 
 })
 
 router.get('/new',(req,res) => {
     res.render('authors/new',{author: new Author()})
- 
-
 
 })
 
@@ -39,34 +34,18 @@ router.post('/',async (req,res) => {
 
 
     try {
-    const newAuthor = await author.save();
-    // Redirect to the author's page (update the URL if needed)
-    // res.redirect(`author/${newAuthor.id}`);
-    res.redirect('/authors');
+         const newAuthor = await author.save();
+        // Redirect to the author's page (update the URL if needed)
+        // res.redirect(`author/${newAuthor.id}`);
+        res.redirect('/authors');
     } catch (err) {
-    res.render('authors/new', {
-        author: author,
-        errorMessage: 'Error saving author',
-    });
+        res.render('authors/new', {
+            author: author,
+            errorMessage: 'Error saving author',
+        });
 }
 
-    // author.save((err,newAuthor)=>{
-    //     if(err) {
-    //         res.render('authors/new',{author: author,
-    //         errorMessage: 'Error saving author'
-    //         })
-
-    //     }else{
-    //         // res.redirect(`author/${newAuthor.id}`)
-    //         res.redirect('author')
-
-    //     }
-
-    // })
   
-
-
-
 })
 
 
