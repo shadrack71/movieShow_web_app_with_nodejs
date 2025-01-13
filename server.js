@@ -8,6 +8,8 @@ const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
+const bookRouter = require('./routes/books')
+
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 mongoose.connect(process.env.DATABASE_URL)
@@ -31,6 +33,7 @@ const PORT = process.env.PORT || 3000
 
 app.use('/',indexRouter)
 app.use('/authors',authorRouter)
+app.use('/books',bookRouter)
 
 app.listen(PORT,()=>{
     console.log(`listening on ${PORT}`)
