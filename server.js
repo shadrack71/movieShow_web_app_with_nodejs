@@ -8,7 +8,7 @@ const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
-const bookRouter = require('./routes/books')
+const bookRouter = require('./routes/books')``
 
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
